@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "338703624513",
+    "project_id": "rider-5a83b",
+    "storage_bucket": "rider-5a83b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:338703624513:android:07c81d5e8eaaa1854219c0",
+        "android_client_info": {
+          "package_name": "com.example.rinzorider"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDdwxua9noeFwDunXgek4bBzvtvDylpvxI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

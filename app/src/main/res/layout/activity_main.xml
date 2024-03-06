@@ -3,7 +3,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#1A1A1A">
+    android:background="@android:color/white">
 
 
     <ImageView
@@ -25,12 +25,12 @@
         android:layout_below="@id/logoImageView"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginStart="135dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="127dp"
+        android:layout_marginStart="131dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="130dp"
         android:text="Rinzo Rider"
         android:textAlignment="center"
-        android:textColor="#FFFFFF"
+        android:textColor="#1A1A1A"
         android:textSize="20sp"
         android:textStyle="bold" />
 
@@ -41,7 +41,7 @@
         android:layout_below="@+id/textView2"
         android:layout_marginTop="29dp"
         android:background="@drawable/edit_text_background"
-        android:hint="Username"
+        android:hint="Email"
         android:padding="16dp"
         android:textColor="#FFFFFF"
         android:textColorHint="#A9A9A9" />
@@ -66,7 +66,7 @@
         android:layout_below="@id/editTextPassword"
         android:layout_marginHorizontal="24dp"
         android:layout_marginTop="37dp"
-        android:background="#3498DB"
+        android:background="@drawable/rounded_button_background"
         android:text="Login"
         android:textColor="#FFFFFF"
         android:textSize="16sp" />
@@ -75,17 +75,17 @@
         android:id="@+id/createUserButton"
         android:layout_width="wrap_content"
         android:layout_height="60dp"
+        android:background="@drawable/rounded_button_background"
         android:layout_below="@id/button2"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
         android:layout_marginBottom="85dp"
-        android:background="#E6E2E2"
+        android:onClick="openCreateUserActivity"
         android:text="Create New User"
         android:textAlignment="center"
         android:textColor="#FDFDFD"
         android:textSize="14sp"
-        android:textStyle="bold"
-        android:onClick="openCreateUserActivity" />
+        android:textStyle="bold" />
     <!-- Add any additional widgets or styles as needed -->
 
 </RelativeLayout>

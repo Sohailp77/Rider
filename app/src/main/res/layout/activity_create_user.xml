@@ -6,7 +6,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#1A1A1A"
+    android:background="@android:color/white"
     tools:context=".createUser">
 
     <!-- CardView as Container -->
@@ -15,126 +15,126 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="44dp"
+        app:cardBackgroundColor="#2B2B2B"
         app:cardCornerRadius="16dp"
         app:cardElevation="8dp"
-        app:cardBackgroundColor="#2B2B2B"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent">
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
 
-    <!-- Inner ConstraintLayout for Inputs -->
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="16dp"
-        android:background="#CCFFFFFF">
+        <!-- Inner ConstraintLayout for Inputs -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="544dp"
+            android:layout_marginTop="24dp"
+            android:padding="16dp">
 
-        <!-- TextView -->
-        <TextView
-            android:id="@+id/textViewCreateUser"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Create New User"
-            android:textColor="#FF000000"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            <!-- TextView -->
+            <TextView
+                android:id="@+id/textViewCreateUser"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Create New User"
+                android:textColor="#FBFBFB"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        <!-- Name EditText -->
+            <!-- Name EditText -->
 
-        <!-- Username EditText -->
-        <EditText
-            android:id="@+id/editTextName"
-            android:layout_width="0dp"
-            android:layout_height="54dp"
-            android:layout_marginTop="20dp"
-            android:background="@drawable/edit_text_background"
-            android:hint="Name"
-            android:padding="16dp"
-            android:textColor="#FFFFFF"
-            android:textColorHint="#A9A9A9"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textViewCreateUser" />
+            <!-- Username EditText -->
+            <EditText
+                android:id="@+id/editTextName"
+                android:layout_width="0dp"
+                android:layout_height="54dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/edit_text_background"
+                android:hint="Name"
+                android:padding="16dp"
+                android:textColor="#FFFFFF"
+                android:textColorHint="#A9A9A9"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textViewCreateUser" />
 
-        <EditText
-            android:id="@+id/editTextUsername"
-            android:layout_width="0dp"
-            android:layout_height="54dp"
-            android:layout_marginTop="16dp"
-            android:background="@drawable/edit_text_background"
-            android:hint="Username"
-            android:padding="16dp"
-            android:textColor="#FFFFFF"
-            android:textColorHint="#A9A9A9"
-            app:layout_constraintTop_toBottomOf="@+id/editTextName"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-           />
+            <EditText
+                android:id="@+id/editTextUsername"
+                android:layout_width="0dp"
+                android:layout_height="54dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/edit_text_background"
+                android:hint="Username"
+                android:padding="16dp"
+                android:textColor="#FFFFFF"
+                android:textColorHint="#A9A9A9"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/editTextName" />
 
-        <!-- Email EditText -->
-        <EditText
-            android:id="@+id/editTextEmail"
-            android:layout_width="0dp"
-            android:layout_height="54dp"
-            android:layout_marginTop="16dp"
-            android:background="@drawable/edit_text_background"
-            android:hint="Email"
-            android:padding="16dp"
-            android:textColor="#FFFFFF"
-            android:textColorHint="#A9A9A9"
-            app:layout_constraintTop_toBottomOf="@+id/editTextUsername"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-             />
+            <!-- Email EditText -->
+            <EditText
+                android:id="@+id/editTextEmail"
+                android:layout_width="0dp"
+                android:layout_height="54dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/edit_text_background"
+                android:hint="Email"
+                android:padding="16dp"
+                android:textColor="#FFFFFF"
+                android:textColorHint="#A9A9A9"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/editTextUsername" />
 
-        <!-- Password EditText -->
+            <!-- Password EditText -->
 
-        <!-- Create User Button -->
-        <EditText
-            android:id="@+id/editTextPassword"
-            android:layout_width="0dp"
-            android:layout_height="54dp"
-            android:layout_marginTop="16dp"
-            android:background="@drawable/edit_text_background"
-            android:hint="Password"
-            android:padding="16dp"
-            android:textColor="#FFFFFF"
-            android:textColorHint="#A9A9A9"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextEmail" />
+            <!-- Create User Button -->
+            <EditText
+                android:id="@+id/editTextPassword"
+                android:layout_width="0dp"
+                android:layout_height="54dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/edit_text_background"
+                android:hint="Password"
+                android:padding="16dp"
+                android:textColor="#FFFFFF"
+                android:textColorHint="#A9A9A9"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/editTextEmail" />
 
-        <Button
-            android:id="@+id/buttonCreateUser"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:background="#000000"
-            android:text="Create User"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextPassword" />
+            <!-- Back to Login Button -->
 
-        <!-- Back to Login Button -->
+            <Button
+                android:id="@+id/buttonCreateUser"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="52dp"
+                android:background="#000000"
+                android:text="Create User"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/editTextPassword" />
 
-        <Button
-            android:id="@+id/loginpage"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:onClick="onbacktologin"
-            android:text="Back to Log In"
-            app:layout_constraintTop_toBottomOf="@+id/buttonCreateUser"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            />
+            <Button
+                android:id="@+id/loginpage"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:onClick="onbacktologin"
+                android:text="Back to Log In"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/buttonCreateUser" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
-</androidx.cardview.widget.CardView>
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</androidx.constraintlayout.widget.ConstraintLayout>

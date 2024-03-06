@@ -1,6 +1,8 @@
 package com.example.rider;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,5 +22,18 @@ public class createUser extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+        // Set up click listener for the new user button
+        findViewById(R.id.loginpage).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openCreateUserActivity();
+            }
+        });
+    }
+
+    // Function to open the CreateUserActivity
+    private void openCreateUserActivity() {
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
     }
 }

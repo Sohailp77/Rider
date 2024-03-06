@@ -40,7 +40,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/textView2"
         android:layout_marginTop="29dp"
-        android:background="#2B2B2B"
+        android:background="@drawable/edit_text_background"
         android:hint="Username"
         android:padding="16dp"
         android:textColor="#FFFFFF"
@@ -52,7 +52,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/editTextUsername"
         android:layout_marginTop="45dp"
-        android:background="#2B2B2B"
+        android:background="@drawable/edit_text_background"
         android:hint="Password"
         android:inputType="textPassword"
         android:padding="16dp"
@@ -84,7 +84,8 @@
         android:textAlignment="center"
         android:textColor="#FDFDFD"
         android:textSize="14sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:onClick="openCreateUserActivity" />
     <!-- Add any additional widgets or styles as needed -->
 
 </RelativeLayout>

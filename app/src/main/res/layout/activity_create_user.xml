@@ -44,21 +44,23 @@
             app:layout_constraintEnd_toEndOf="parent" />
 
         <!-- Name EditText -->
+
+        <!-- Username EditText -->
         <EditText
             android:id="@+id/editTextName"
             android:layout_width="0dp"
             android:layout_height="54dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="20dp"
             android:background="@drawable/edit_text_background"
             android:hint="Name"
             android:padding="16dp"
             android:textColor="#FFFFFF"
             android:textColorHint="#A9A9A9"
-            app:layout_constraintTop_toBottomOf="@+id/textViewCreateUser"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/textViewCreateUser" />
 
-        <!-- Username EditText -->
         <EditText
             android:id="@+id/editTextUsername"
             android:layout_width="0dp"
@@ -91,6 +93,8 @@
              />
 
         <!-- Password EditText -->
+
+        <!-- Create User Button -->
         <EditText
             android:id="@+id/editTextPassword"
             android:layout_width="0dp"
@@ -101,11 +105,11 @@
             android:padding="16dp"
             android:textColor="#FFFFFF"
             android:textColorHint="#A9A9A9"
-            app:layout_constraintTop_toBottomOf="@+id/editTextEmail"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/editTextEmail" />
 
-        <!-- Create User Button -->
         <Button
             android:id="@+id/buttonCreateUser"
             android:layout_width="0dp"
@@ -118,6 +122,18 @@
             app:layout_constraintTop_toBottomOf="@+id/editTextPassword" />
 
         <!-- Back to Login Button -->
+        <Button
+            android:id="@+id/loginpage"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="80dp"
+            android:onClick="onbacktologin"
+            android:text="Back to Log In"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/buttonCreateUser" />
+
         <Button
             android:id="@+id/loginpage"
             android:layout_width="0dp"

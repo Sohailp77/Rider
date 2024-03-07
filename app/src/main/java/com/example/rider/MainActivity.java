@@ -1,6 +1,7 @@
 package com.example.rider;
 
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -62,6 +63,19 @@ public class MainActivity extends AppCompatActivity {
 
         String username = usernameEditText.getText().toString().trim();
         String password = passwordEditText.getText().toString().trim();
+
+//        if (TextUtils.isEmpty(username)  ||  TextUtils.isEmpty(password)) {
+//            Toast.makeText(this, "Please fill in all fields", Toast.LENGTH_SHORT).show();
+//            return;
+//        }
+        if (TextUtils.isEmpty(username)){
+            Toast.makeText(this, "Please Enter Email", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if   (TextUtils.isEmpty(password)) {
+            Toast.makeText(this, "Please Enter Password", Toast.LENGTH_SHORT).show();
+            return;
+        }
 
         // Perform Firebase authentication
         auth.signInWithEmailAndPassword(username, password)

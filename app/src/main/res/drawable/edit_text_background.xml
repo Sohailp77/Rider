@@ -19,11 +19,11 @@
     </item>
 
     <!-- Underline -->
-    <item android:bottom="1dp" android:left="-1dp" android:right="-1dp">
+    <item android:bottom="1dp" android:left="1dp" android:right="1dp">
         <shape android:shape="rectangle">
             <solid android:color="#2B2B2B" />
             <corners android:radius="12dp" /> <!-- Adjust the radius to control the roundness -->
-            <stroke android:width="1dp" android:color="#FFFFFF" />
+            <stroke android:width="2dp" android:color="#FFFFFF" />
         </shape>
     </item>
 

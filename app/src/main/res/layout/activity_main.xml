@@ -43,6 +43,8 @@
         android:background="@drawable/edit_text_background"
         android:hint="Email"
         android:padding="16dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
         android:textColor="#FFFFFF"
         android:textColorHint="#A9A9A9" />
 
@@ -54,6 +56,8 @@
         android:layout_marginTop="45dp"
         android:background="@drawable/edit_text_background"
         android:hint="Password"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
         android:inputType="textPassword"
         android:padding="16dp"
         android:textColor="#FFFFFF"
@@ -66,6 +70,8 @@
         android:layout_below="@id/editTextPassword"
         android:layout_marginHorizontal="24dp"
         android:layout_marginTop="37dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
         android:background="@drawable/rounded_button_background"
         android:text="Login"
         android:textColor="#FFFFFF"

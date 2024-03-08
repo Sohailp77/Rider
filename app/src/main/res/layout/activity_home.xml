@@ -84,6 +84,7 @@
         android:layout_marginTop="12dp"
         android:background="?android:attr/selectableItemBackground"
         android:src="@android:drawable/ic_menu_edit"
+        android:onClick="editbtn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.305"
         app:layout_constraintStart_toStartOf="parent"

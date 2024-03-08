@@ -1,14 +1,13 @@
 package com.example.rider;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
-import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -21,6 +20,7 @@ public class home extends AppCompatActivity {
 
     private FirebaseAuth auth;
     private DatabaseReference usersRef;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,7 +31,24 @@ public class home extends AppCompatActivity {
 
         // Retrieve and display user details
         retrieveAndDisplayUserDetails();
+
+        // Set OnClickListener for the Edit ImageButton
+        ImageButton editButton = findViewById(R.id.editButton);
+        if (editButton != null) {
+            editButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    openEditUserActivity();
+                }
+            });
+        }
     }
+
+    private void openEditUserActivity() {
+        Intent intent = new Intent(this, editlayout.class);
+        startActivity(intent);
+    }
+
     private void retrieveAndDisplayUserDetails() {
         String userId = auth.getCurrentUser().getUid();
 
@@ -42,7 +59,7 @@ public class home extends AppCompatActivity {
                     // Retrieve user details from dataSnapshot
                     String name = dataSnapshot.child("name").getValue(String.class);
                     String email = dataSnapshot.child("email").getValue(String.class);
-                    String username= dataSnapshot.child("username").getValue(String.class);
+                    String username = dataSnapshot.child("username").getValue(String.class);
 
                     // Display user details in the UI (e.g., TextViews)
                     TextView nameTextView = findViewById(R.id.nameTextView);
@@ -51,14 +68,14 @@ public class home extends AppCompatActivity {
 
                     nameTextView.setText("Name: " + name);
                     emailTextView.setText("Email: " + email);
-                    usernameTextView.setText("username: " + username);
-
+                    usernameTextView.setText("Username: " + username);
                 }
             }
+
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
                 // Handle errors
             }
         });
-}
+    }
 }

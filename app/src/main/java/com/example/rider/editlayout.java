@@ -97,6 +97,7 @@ public class editlayout extends AppCompatActivity {
 
         // Start the home activity
         startHomeActivity();
+
     }
 
     private void updateUserData(String newName, String newUsername) {

@@ -15,6 +15,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -44,7 +45,7 @@ public class createUser extends AppCompatActivity {
         findViewById(R.id.loginpage).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                openCreateUserActivity();
+                mainaAtivity();
             }
         });
 
@@ -58,8 +59,8 @@ public class createUser extends AppCompatActivity {
 
     }
 
-    // Function to open the CreateUserActivity
-    private void openCreateUserActivity() {
+    // Function to open the mainactivity
+    private void mainaAtivity() {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
@@ -81,27 +82,57 @@ public class createUser extends AppCompatActivity {
             return;
         }
 
-        // Perform Firebase registration
+        // Send email verification first
+        sendEmailVerification(email, password, name, username);
+    }
+
+    private void sendEmailVerification(String email, String password, String name, String username) {
         auth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, task -> {
                     if (task.isSuccessful()) {
-                        // Registration successful, save user details to Realtime Database
-                        String userId = auth.getCurrentUser().getUid();
+                        FirebaseUser user = auth.getCurrentUser();
+                        user.sendEmailVerification()
+                                .addOnCompleteListener(this, verificationTask -> {
+                                    if (verificationTask.isSuccessful()) {
+                                        // Email verification sent successfully
+                                        Toast.makeText(createUser.this, "Verification email sent. Please verify your email before logging in.", Toast.LENGTH_SHORT).show();
+                                        // Registration successful, save user details to Realtime Database
+                                        saveUserDetailsToDatabase(name, username, email);
+                                        finish();
 
-                        // Create a User object (you can create a User class or use a Map)
-                        Map<String, Object> user = new HashMap<>();
-                        user.put("name", name);
-                        user.put("username", username);
-                        user.put("email", email);
-
-                        // Save user details to Realtime Database
-                        usersRef.child(userId).setValue(user);
-                        // Registration successful, update UI or navigate to the home page
-                        Toast.makeText(createUser.this, "User created successfully", Toast.LENGTH_SHORT).show();
-                        // You can add additional logic here, such as navigating to the home page
+                                        //starting main activity
+                                        Intent intent = new Intent(this, MainActivity.class);
+                                        startActivity(intent);
+                                    } else {
+                                        // Error sending verification email
+                                        Toast.makeText(createUser.this, "Error sending verification email: " + verificationTask.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                                    }
+                                });
                     } else {
                         // Registration failed, handle the error
                         Toast.makeText(createUser.this, "Registration failed: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                });
+    }
+
+    private void saveUserDetailsToDatabase(String name, String username, String email) {
+        String userId = auth.getCurrentUser().getUid();
+
+        // Create a User object (you can create a User class or use a Map)
+        Map<String, Object> user = new HashMap<>();
+        user.put("name", name);
+        user.put("username", username);
+        user.put("email", email);
+
+        // Save user details to Realtime Database
+        usersRef.child(userId).setValue(user)
+                .addOnCompleteListener(this, databaseTask -> {
+                    if (databaseTask.isSuccessful()) {
+                        // Data saved successfully
+                        //Toast.makeText(createUser.this, "User created successfully. Verification email sent. Data saved to Realtime Database.", Toast.LENGTH_SHORT).show();
+                    } else {
+                        // Error saving data to the database
+                        Toast.makeText(createUser.this, "Error saving data to Realtime Database: " + databaseTask.getException().getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 });
     }

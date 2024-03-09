@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -81,11 +82,18 @@ public class MainActivity extends AppCompatActivity {
         auth.signInWithEmailAndPassword(username, password)
                 .addOnCompleteListener(this, task -> {
                     if (task.isSuccessful()) {
-                        // Login successful, update UI or navigate to the home page
-                        Toast.makeText(MainActivity.this, "Login successful", Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(MainActivity.this, home.class);
-                        startActivity(intent);
-                        finish();
+                        FirebaseUser user = auth.getCurrentUser();
+                        if (user.isEmailVerified()) {
+                            // Login successful, update UI or navigate to the home page
+                            Toast.makeText(MainActivity.this, "Login successful", Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(MainActivity.this, home.class);
+                            startActivity(intent);
+                            finish();
+                        }
+                        else {
+                            // Login failed, email not verified
+                            Toast.makeText(this, "Please verify your email to log in.", Toast.LENGTH_SHORT).show();
+                        }
                         // Navigate to the home page or perform other actions
                     } else {
                         // Login failed, handle the error
